@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Coderdojo Firenze</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="informations">Benvenuto!\nQuesta è l\'app di CoderDojo Firenze!\nNon sai chi siamo ? Vieni a trovarci nel nostro sito e lo scoprirai!\nSeguici anche su Facebook e Twitter </string>
+    <string name="title_event">Titolo</string>
+    <string name="description_event">Descrizione</string>
+    <string name="date_event">Data e ora</string>
+    <string name="location_event">Luogo</string>
+    <string name="tabs">Descrizione</string>
+    <string name="copyright">Applicazione svilluppata da Tommaso Garuglieri\ne\n A.Andres Loaiza G.\nSotto licenza open source GNU</string>
+
+</resources>

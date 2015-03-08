@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dojovolta.coderdojo_firenze_app_beta.Activities.EventsTabs.FragmentDescriptionEvent">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dialogDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="start"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Mancano ormai solo due giorni al bellissimo appuntamento di sabato 20 Dicembre: CoderDojo Firenze #17 – Gobetti Volta (i posti sono purtroppo già esauriti, ma è possibile iscriversi in lista d’attesa qui).
+
+Con questo speciale incontro CoderDojo Firenze chiude un fantastico 2014 con tanta felicità per quello che si è realizzato in un anno pieno di appuntamenti ma ancor più con fiducia e speranza per un 2015 in cui il coding può affermarsi ancora di più come risorsa e strumento educativo per tanti bambini e ragazzi di Firenze e di tutta Italia.
+
+Perchè questo incontro è così speciale? Perchè per l’occasione saremo ospiti di una scuola, l’Istituto Statale di Istruzione superiore Gobetti Volta di Bagno a Ripoli, Firenze, e soprattutto perchè questo incontro sarà un vero e proprio laboratorio per provare a dare il via ad un nuovo CoderDojo, organizzato e gestito dagli studenti.
+
+Con CoderDojo Firenze 17# realizzeremo un incontro con 60 bambini suddivisi in 3 aule di informatica l’una adiacente all’altra; lavoreremo con scratch, html, javascript oltre ad alcuni esercizi di processing per i ragazzi più grandi; coinvolgeremo come mentor tanti giovani studenti della scuola sia in attività di supporto tipiche del coderdojo che in attività di approfondimento di alcuni temi meno conosciuti.
+
+Ma soprattutto (dato che ci sembrava poco) grazie all’interessamento di due docenti di Informatica dell’Istituto (che non finiremo mai di ringraziare), alla disponibilità della presidenza ed alla passione per la programmazione e per il making di alcuni bravissimi studenti l’obiettivo è stabilire le basi per un laboratorio Coderdojo Gobetti-Volta stabile e duraturo, gestito da studenti e docenti nelle aulee dell’istituto il prossimo anno. Si parla quindi di un vero e proprio laboratorio stabile che permetta di realizzare il vero potenziale dei CoderDojo: un punto di incontro frequente, uno spazio aperto in cui lavorare tutti insieme uno o più giorni ogni settimana, un vero Club di Programmazione che permetta ai ragazzi di confrontarsi e collaborare ai propri progetti oltre a formare con il più puro Learn-By-Doing giovani appassionati che muovono i primi passi nella programmazione.s"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
+
+</RelativeLayout>
