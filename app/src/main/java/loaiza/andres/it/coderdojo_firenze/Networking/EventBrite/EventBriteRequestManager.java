@@ -11,6 +11,7 @@ import retrofit.RetrofitError;
 public class EventBriteRequestManager {
 
     public static final String CODEROJO_ID = "2079433853";
+    public static final String TESTGARU_ID = "7840238166";
     public static final String TEST_ID = "7840587595";
     private final String PUBLIC_TOKEN = "FXJN23TCHVRM73KUQLEP"; // <- Use this
     private final String PERSONAL_TOKEN = "BKIYA2K56NSZUDVG6LWR";
