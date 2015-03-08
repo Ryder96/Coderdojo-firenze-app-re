@@ -84,6 +84,8 @@
             android:layout_marginTop="8dp"
             android:maxLines="5"
             android:scrollbars="vertical"
+            android:text="@string/sample_dialog"
+            android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
 

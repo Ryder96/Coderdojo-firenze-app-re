@@ -62,6 +62,6 @@ public class TabPagerAdapterEvents extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return ELEMENTS; //N. of tabs
+        return 2; //N. of tabs
     }
 }

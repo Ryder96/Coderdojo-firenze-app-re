@@ -5,30 +5,48 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import loaiza.andres.it.coderdojo_firenze.Activities.Event.TabPagerAdapterEvents;
+import loaiza.andres.it.coderdojo_firenze.Activities.Main.MainActivity;
 import loaiza.andres.it.coderdojo_firenze.CustomControls.EventBrite.BriteListItem;
 import loaiza.andres.it.coderdojo_firenze.Helpers.GsonHelper;
 import loaiza.andres.it.coderdojo_firenze.Helpers.ResourcesHelper;
 import loaiza.andres.it.coderdojo_firenze.R;
 
 
-public class FragmentEventMap extends Fragment {
+public class FragmentEventMap extends Fragment implements View.OnClickListener {
 
     private GoogleMap map;
     private BriteListItem currentItem;
+    private ImageView pather;
+    private LinearLayout optionContainer;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_event_map, container, false);
         this.currentItem = (BriteListItem) GsonHelper.get(getArguments().getString(TabPagerAdapterEvents.BUNDLE_CURRENT_ITEM), BriteListItem.class);
         if (map == null)
             this.initMap();
+        initView(myView);
         return myView;
+    }
+
+    private void initView(View myView) {
+        pather = (ImageView) myView.findViewById(R.id.madePath);
+        optionContainer = (LinearLayout) myView.findViewById(R.id.optionContainer);
+
+        pather.setOnClickListener(this);
+        optionContainer.setBackgroundColor(MainActivity.toolbarColor);
     }
 
     private void initMap() {
@@ -50,6 +68,7 @@ public class FragmentEventMap extends Fragment {
                         .icon(ResourcesHelper.getBitmapFormRes(this.getActivity().getApplicationContext(), R.drawable.ic_launcher))
         );
 
+        map.setPadding(100, 0, 0, 0);
     }
 
 
@@ -63,4 +82,21 @@ public class FragmentEventMap extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v.equals(pather)) {
+            if (map.getMyLocation() == null) {
+                Toast myToast = Toast.makeText(getActivity().getApplicationContext(), "Attivare gps", Toast.LENGTH_SHORT);
+                myToast.show();
+            } else {
+                Polyline line = map.addPolyline(new PolylineOptions()
+                        .add(new LatLng(map.getMyLocation().getLatitude(), map.getMyLocation().getLongitude()),
+                                new LatLng(currentItem.getLatLng().latitude, currentItem.getLatLng().longitude))
+                        .width(25)
+                        .color(MainActivity.toolbarColor)
+                        .geodesic(true));
+
+            }
+        }
+    }
 }

@@ -2,7 +2,6 @@ package loaiza.andres.it.coderdojo_firenze.Activities.Event.Fragments;
 
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import loaiza.andres.it.coderdojo_firenze.Activities.Event.TabPagerAdapterEvents;
+import loaiza.andres.it.coderdojo_firenze.Activities.Main.MainActivity;
 import loaiza.andres.it.coderdojo_firenze.CustomControls.EventBrite.BriteListItem;
 import loaiza.andres.it.coderdojo_firenze.Helpers.GsonHelper;
 import loaiza.andres.it.coderdojo_firenze.R;
@@ -27,8 +27,7 @@ public class FragmentEventInfo extends Fragment implements View.OnClickListener 
     private TextView textViewDate;
     private TextView textViewLocation;
     private TextView textViewDescription;
-    private ImageView imageViewPin;
-    private Typeface typeface;
+    private ImageView imageViewSite;
 
     private View myView;
 
@@ -46,11 +45,7 @@ public class FragmentEventInfo extends Fragment implements View.OnClickListener 
         this.textViewTitle = (TextView) view.findViewById(R.id.textviewTitle);
         this.textViewLocation = (TextView) view.findViewById(R.id.textViewLocation);
         this.textViewDescription = (TextView) view.findViewById(R.id.textViewEventDescription);
-        this.imageViewPin = (ImageView) view.findViewById(R.id.imageViewLocation);
-        this.textViewDate.setTypeface(typeface);
-        this.textViewTitle.setTypeface(typeface);
-        this.textViewLocation.setTypeface(typeface);
-        this.textViewDescription.setTypeface(typeface);
+        this.imageViewSite = (ImageView) view.findViewById(R.id.imageViewLocation);
         if (this.currentItem != null)
             populateView(currentItem);
     }
@@ -62,8 +57,10 @@ public class FragmentEventInfo extends Fragment implements View.OnClickListener 
         this.textViewLocation.setText(item.getLocation());
         this.currentItem = item;
         this.textViewDescription.setOnClickListener(this);
-        this.imageViewPin.setOnClickListener(this);
+        this.imageViewSite.setOnClickListener(this);
         this.textViewDescription.setText(textViewDescription.getText().toString() + "...");
+        this.imageViewSite.setColorFilter(MainActivity.toolbarColor);
+
     }
 
     private void openDescriptionDialog() {
@@ -79,7 +76,7 @@ public class FragmentEventInfo extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         if (v.equals(textViewDescription))
             openDescriptionDialog();
-        if (v.equals(imageViewPin))
+        if (v.equals(imageViewSite))
             openSite();
     }
 

@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import it.neokree.materialtabs.MaterialTab;
 import it.neokree.materialtabs.MaterialTabHost;
 import it.neokree.materialtabs.MaterialTabListener;
-import loaiza.andres.it.coderdojo_firenze.Activities.Main.TabPagerAdapterMain;
+import loaiza.andres.it.coderdojo_firenze.Activities.Main.MainActivity;
 import loaiza.andres.it.coderdojo_firenze.CustomControls.EventBrite.BriteEventsAdapter;
 import loaiza.andres.it.coderdojo_firenze.CustomControls.EventBrite.BriteListItem;
 import loaiza.andres.it.coderdojo_firenze.Gui.DojoActivityHelper;
@@ -19,7 +19,7 @@ import loaiza.andres.it.coderdojo_firenze.R;
 public class EventActivityTabbed extends ActionBarActivity implements MaterialTabListener {
     MaterialTabHost tabHost;
     ViewPager pager;
-    TabPagerAdapterMain pagerAdapter;
+    TabPagerAdapterEvents pagerAdapter;
 
 
     @Override
@@ -28,12 +28,12 @@ public class EventActivityTabbed extends ActionBarActivity implements MaterialTa
         DojoActivityHelper.setupLayout(this);
         super.setContentView(R.layout.activity_main_event);
         BriteListItem currentItem = (BriteListItem) GsonHelper.get(getIntent().getStringExtra(BriteEventsAdapter.INTENT_ITEM), BriteListItem.class);
-        this.initLayout();
+        this.initLayout(currentItem);
         if (currentItem != null)
             this.setupTabs(currentItem);
     }
 
-    private void initLayout() {
+    private void initLayout(BriteListItem currentItem) {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.eventToolbar);
         this.setSupportActionBar(toolbar);
@@ -41,7 +41,7 @@ public class EventActivityTabbed extends ActionBarActivity implements MaterialTa
         tabHost = (MaterialTabHost) this.findViewById(R.id.eventTabHost);
         pager = (ViewPager) this.findViewById(R.id.eventViewPager);
 
-        pagerAdapter = new TabPagerAdapterMain(getSupportFragmentManager());
+        pagerAdapter = new TabPagerAdapterEvents(getSupportFragmentManager(), currentItem);
         pager.setAdapter(pagerAdapter);
         pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
@@ -53,12 +53,17 @@ public class EventActivityTabbed extends ActionBarActivity implements MaterialTa
         tabHost.addTab(tabHost.newTab().setTabListener(this).setText("Informazioni Evento"));
         tabHost.addTab(tabHost.newTab().setTabListener(this).setText("Map"));
 
+
+        tabHost.setPrimaryColor(MainActivity.toolbarColor);
+        toolbar.setBackgroundColor(MainActivity.toolbarColor);
+        tabHost.setBackgroundColor(MainActivity.toolbarColor);
+        tabHost.setPrimaryColor(MainActivity.toolbarColor);
     }
 
 
     @Override
     public void onTabSelected(MaterialTab materialTab) {
-
+        pager.setCurrentItem(materialTab.getPosition());
     }
 
     @Override

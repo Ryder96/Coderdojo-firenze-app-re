@@ -11,7 +11,7 @@ import retrofit.RetrofitError;
 public class EventBriteRequestManager {
 
     public static final String CODEROJO_ID = "2079433853";
-    public static final String TEST_ID = "7840238166";
+    public static final String TEST_ID = "7840587595";
     private final String PUBLIC_TOKEN = "FXJN23TCHVRM73KUQLEP"; // <- Use this
     private final String PERSONAL_TOKEN = "BKIYA2K56NSZUDVG6LWR";
     private final String apiEndPoint = "https://www.eventbriteapi.com/v3/events/";
