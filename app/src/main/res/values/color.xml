@@ -5,4 +5,6 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="perfect_blue">#234164</color>
+    <color name="twitter_blue">#55acee</color>
+    <color name="eventbrite_orange">#F3844C</color>
 </resources>
